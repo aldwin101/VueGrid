@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="btn">
+    <button @click="changeView">Switch view</button>
+    </div>
+    <TweetList/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TweetList from './components/TweetList.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TweetList
+  },
+  methods: {
+    changeView() {
+      this.$root.$emit('onClick');
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  background-color: rgb(82, 82, 126);
+  color: rgb(0, 0, 0);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+button {
+  border-radius: 20px;
+}
+#btn {
+text-align: right;
+}
+
 </style>
